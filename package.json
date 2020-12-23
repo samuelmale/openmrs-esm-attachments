@@ -55,6 +55,7 @@
     "@openmrs/esm-api": "^3.0.0",
     "@openmrs/esm-config": "^3.0.0",
     "@openmrs/esm-error-handling": "^3.0.0",
+    "@openmrs/esm-react-utils": "^3.0.0",
     "carbon-components": "^10.19.0",
     "carbon-icons": "^7.0.7",
     "i18next": "^19.4.2",

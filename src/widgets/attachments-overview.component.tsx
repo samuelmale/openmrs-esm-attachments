@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useCurrentPatient, UserHasAccessReact } from '@openmrs/esm-api';
+import { useCurrentPatient, UserHasAccess } from '@openmrs/esm-react-utils';
 import { getAttachments, createAttachment, deleteAttachment } from './attachments.resource';
 import Gallery from 'react-grid-gallery';
 import styles from './attachments-overview.css';
@@ -118,7 +118,7 @@ export default function AttachmentsOverview() {
   }
 
   return (
-    <UserHasAccessReact privilege="View Attachments">
+    <UserHasAccess privilege="View Attachments">
       <div
         className={styles.overview}
         onPaste={e => handleUpload(e, e.clipboardData.files)}
@@ -136,13 +136,13 @@ export default function AttachmentsOverview() {
           <CameraUpload onNewAttachment={handleNewAttachment} />
         </div>
         {getSelectedImages().length !== 0 && (
-          <UserHasAccessReact privilege="Delete Attachment">
+          <UserHasAccess privilege="Delete Attachment">
             <div className={styles.actions}>
               <button onClick={deleteSelected} className={`omrs-btn omrs-filled-action`}>
                 <Trans i18nKey="deleteSelected">Delete selected</Trans>
               </button>
             </div>
-          </UserHasAccessReact>
+          </UserHasAccess>
         )}
         <Gallery
           images={attachments}
@@ -156,7 +156,7 @@ export default function AttachmentsOverview() {
           thumbnailImageComponent={AttachmentThumbnail}
         />
       </div>
-    </UserHasAccessReact>
+    </UserHasAccess>
   );
 }
 
