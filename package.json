@@ -1,14 +1,14 @@
 {
-  "name": "@openmrs/esm-attachments",
+  "name": "@openmrs/esm-attachments-app",
   "version": "1.0.0",
   "description": "Attachments widgets microfrontend for the OpenMRS SPA",
   "main": "dist/openmrs-esm-attachments.js",
   "types": "src/index.ts",
   "license": "MPL-2.0",
-  "homepage": "https://github.com/samuelmale/openmrs-esm-attachments#readme",
+  "homepage": "https://github.com/openmrs/openmrs-esm-attachments#readme",
   "scripts": {
     "start": "openmrs debug --run-project",
-    "serve": "webpack-dev-server",
+    "serve": "webpack-dev-server --https",
     "debug": "npm run serve",
     "build": "webpack --mode production",
     "lint": "eslint src --ext js,jsx,ts,tsx",
@@ -34,12 +34,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samuelmale/openmrs-esm-attachments.git"
+    "url": "git+https://github.com/openmrs/openmrs-esm-attachments.git"
   },
   "bugs": {
-    "url": "https://github.com/samuelmale/openmrs-esm-attachments/issues"
+    "url": "https://github.com/openmrs/openmrs-esm-attachments/issues"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "dayjs": "^1.9.3",

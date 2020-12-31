@@ -1,5 +1,23 @@
-export { default as AttachmentThumbnail } from './widgets/attachment-thumbnail.component';
-export { default as AttachmentsOverview } from './widgets/attachments-overview.component';
-export { default as CameraFrame } from './widgets/camera-frame.component';
-export { default as CameraUpload } from './widgets/camera-upload.component';
-export { default as ImagePreview } from './widgets/image-preview.component';
+import { getAsyncLifecycle } from '@openmrs/esm-react-utils';
+import { backendDependencies } from './openmrs-backend-dependencies';
+
+const importTranslation = require.context('../translations', false, /.json$/, 'lazy');
+
+function setupOpenMRS() {
+  const moduleName = '@openmrs/esm-attachments-app';
+
+  return {
+    extensions: [
+      {
+        id: 'attachments-overview-widget',
+        slot: 'attachments-overview-tab',
+        load: getAsyncLifecycle(() => import('./widgets/attachments-overview.component'), {
+          featureName: 'attachments',
+          moduleName,
+        }),
+      },
+    ],
+  };
+}
+
+export { backendDependencies, importTranslation, setupOpenMRS };
